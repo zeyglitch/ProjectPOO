@@ -1,3 +1,3 @@
-public class ReponseJeune {
+public class ReponseJeune extends ReponseImmunitaire {
 
 }
