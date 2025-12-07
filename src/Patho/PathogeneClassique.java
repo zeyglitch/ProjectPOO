@@ -1,5 +1,15 @@
 public class PathogeneClassique extends Pathogene {
-    public PathogeneClassique(String nom, float chargeL, float tauxRep, float sensibiliteImmuno, float resistanceMedm, float strategyResistance) {
-        super(nom, type, chargeL, tauxRep, sensibiliteImmuno, resistanceMedm, strategyResistance);
+    public PathogeneClassique(String nom, float currentChargeInf, float tauxRep, float sensibilite, float resistanceMedm, Patient patient, Traitement traitement) {
+        super(nom, type, currentChargeInf, tauxRep, sensibilite, resistanceMedm, patient, traitement);
+    }
+    @Override
+    protected float updateChargeInf() {
+        float totAlpham = 0.0f;
+        float totDmt = 0.0f;
+        for (Medicament med : traitement.getMedicaments()) {
+            totAlpham += med.getSensibilite();
+            totDmt += med.getcurrentDm();
+        }
+        return Math.max(0, currentChargeInf + currentChargeInf * tauxRep - sensibilite * patient.getReactiviteSI() - totAlpham * totDmt *(1-resistanceMedm) );
     }
 }

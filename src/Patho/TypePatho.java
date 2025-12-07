@@ -1,4 +1,4 @@
-public enumeration TypePatho {
+public enum TypePatho {
     VIRUS,
     BACTERIE,
 }

@@ -1,15 +1,18 @@
 abstract class Pathogene {
     protected String nom;
-    protected float chargeL, tauxRep, sensibiliteImmuno, resistanceMedm, strategyResistance;
+    protected float currentChargeInf, tauxRep, sensibilite, resistanceMedm;
     protected TypePatho type;
-    public Pathogene(String nom, TypePatho type, float chargeL, float tauxRep, float sensibiliteImmuno, float resistanceMedm, float strategyResistance) {
+    protected Patient patient;
+    protected Traitement traitement;
+
+    public Pathogene(String nom, TypePatho type, float currentChargeInf, float tauxRep, float sensibilite, float resistanceMedm, Patient patient) {
         this.nom = nom;
         this.type = type;
-        this.chargeL = chargeL;
+        this.currentChargeInf = currentChargeInf;
         this.tauxRep = tauxRep;
-        this.sensibiliteImmuno = sensibiliteImmuno;
+        this.sensibilite = sensibilite;
         this.resistanceMedm = resistanceMedm;
-        this.strategyResistance = strategyResistance;
+        this.patient = patient;
     }
 
     public String getNom() {
@@ -18,20 +21,20 @@ abstract class Pathogene {
     public TypePatho getType() {
         return type;
     }
-    public float getChargeL() {
-        return chargeL;
+    public float getcurrentChargeInf() {
+        return currentChargeInf;
     }
     public float getTauxRep() {
         return tauxRep;
     }
-    public float getSensibiliteImmuno() {
-        return sensibiliteImmuno;
+    public float getsensibilite() {
+        return sensibilite;
     }
     public float getResistanceMedm() {
         return resistanceMedm;
     }
-    public float getStrategyResistance() {
-        return strategyResistance;
+    public Patient getPatient() {
+        return patient;
     }
     public void setNom(String nom) {
         this.nom = nom;
@@ -39,24 +42,22 @@ abstract class Pathogene {
     public void setType(TypePatho type) {
         this.type = type;
     }
-    public void setChargeL(float chargeL) {
-        this.chargeL = chargeL;
+    public void setcurrentChargeInf(float currentChargeInf) {
+        this.currentChargeInf = currentChargeInf;
     }
     public void setTauxRep(float tauxRep) {
         this.tauxRep = tauxRep;
     }   
-    public void setSensibiliteImmuno(float sensibiliteImmuno) {
-        this.sensibiliteImmuno = sensibiliteImmuno;
+    public void setsensibilite(float sensibilite) {
+        this.sensibilite = sensibilite;
     }
     public void setResistanceMedm(float resistanceMedm) {
         this.resistanceMedm = resistanceMedm;
     }
-    public void setStrategyResistance(float strategyResistance) {
-        this.strategyResistance = strategyResistance;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
-    
-    public float calculerNouvelleChargeL() {    
-    }
+    public abstract float updateChargeInf();
     protected abstract float calculerReplication(float chargeActu);
 
 }   
