@@ -16,18 +16,16 @@ public class Simulation{
         patients.add(p);
     }
 
-    public void ajouterPathogene(Pathogene patho, float itInit){
-        Patient p = patho.getPatient();
-        p.ajouterPatho(patho, itInit);
+    public void ajouterPathogene(Pathogene patho, float itInit, float chargeInit){
+        for(Patient p: patients){
+            p.ajouterPatho(patho, itInit, chargeInit);
+        }
     }
 
-    public void ajouterMed(Pathogene patho, Medicament med, float resM){
-        Traitement traitement = patho.getTraitement();
-        if(traitement==null){
-            patho.setTraitement(new Traitement());
-            patho.getTraitement().setPathogene(patho);
+    public void ajouterMed(Pathogene patho, Medicament med, float resM, float concMed){
+        for(Patient p: patients){
+            p.ajouterMedPourPatho(patho, med, resM, concMed);
         }
-        patho.getTraitement().ajouterMed(med, resM, 0);
     }
 
     public void debutSimul(){

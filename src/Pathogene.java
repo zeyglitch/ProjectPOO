@@ -1,23 +1,14 @@
 public abstract class Pathogene {
     protected String nom;
-    protected float currentChargeInf, tauxRep, sensibilite;
+    protected float tauxRep, sensibilite;
     protected TypePatho type;
-    protected Patient patient;
-    protected Traitement traitement;
 
-    public Pathogene(String nom, TypePatho type, float currentChargeInf, float tauxRep, float sensibilite, Patient patient) {
+    public Pathogene(String nom, TypePatho type, float tauxRep, float sensibilite) {
         this.nom = nom;
         this.type = type;
-        this.currentChargeInf = currentChargeInf;
         this.tauxRep = tauxRep;
         this.sensibilite = sensibilite;
-        this.patient = patient;
     }
-
-    public void setTraitement(Traitement t){
-        this.traitement = t;
-    }
-
 
     public String getNom() {
         return nom;
@@ -25,26 +16,19 @@ public abstract class Pathogene {
     public TypePatho getType() {
         return type;
     }
-    public float getcurrentChargeInf() {
-        return currentChargeInf;
-    }
+
     public float getTauxRep() {
         return tauxRep;
     }
     public float getsensibilite() {
         return sensibilite;
     }
-    public Patient getPatient() {
-        return patient;
-    }
+
     public void setNom(String nom) {
         this.nom = nom;
     }
     public void setType(TypePatho type) {
         this.type = type;
-    }
-    public void setcurrentChargeInf(float currentChargeInf) {
-        this.currentChargeInf = currentChargeInf;
     }
     public void setTauxRep(float tauxRep) {
         this.tauxRep = tauxRep;
@@ -53,26 +37,12 @@ public abstract class Pathogene {
         this.sensibilite = sensibilite;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
+    public abstract Float updateChargeInf(Patient p);
 
-    public Traitement getTraitement(){
-        return traitement;
-    }
-
-    public abstract Float updateChargeInf();
 
     @Override
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.getClass().toString());
-        sb.append(" "+nom +" (It = "+patient.getItPourPatho(this)+"; Lt = " + currentChargeInf + ")");
-        if(traitement!=null){
-            sb.append("\n\ttraite par le traitement: \n");
-            sb.append(traitement.toString());
-        }
-        return sb.toString();
+        return this.getClass().getName() + " " +nom;
     }
     
 }

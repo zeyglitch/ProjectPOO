@@ -46,8 +46,4 @@ public class Medicament {
     public String toString(){
         return nom;
     }
-
-    
-
-
 }

@@ -7,7 +7,7 @@ public class PatientAdulte extends Patient {
 
     public void updateIt(){
         for(Pathogene p : pathoEtIt.keySet()){
-            Float lt = p.updateChargeInf();
+            Float lt = p.updateChargeInf(this);
             Float oldIt = pathoEtIt.get(p);
             Float newIt = oldIt + coefFatigue*lt - reactiviteSI*oldIt;
             if(newIt>0){
