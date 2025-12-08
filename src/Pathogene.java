@@ -1,17 +1,16 @@
 public abstract class Pathogene {
     protected String nom;
-    protected float currentChargeInf, tauxRep, sensibilite, resistanceMedm;
+    protected float currentChargeInf, tauxRep, sensibilite;
     protected TypePatho type;
     protected Patient patient;
     protected Traitement traitement;
 
-    public Pathogene(String nom, TypePatho type, float currentChargeInf, float tauxRep, float sensibilite, float resistanceMedm, Patient patient) {
+    public Pathogene(String nom, TypePatho type, float currentChargeInf, float tauxRep, float sensibilite, Patient patient) {
         this.nom = nom;
         this.type = type;
         this.currentChargeInf = currentChargeInf;
         this.tauxRep = tauxRep;
         this.sensibilite = sensibilite;
-        this.resistanceMedm = resistanceMedm;
         this.patient = patient;
     }
 
@@ -31,9 +30,6 @@ public abstract class Pathogene {
     public float getsensibilite() {
         return sensibilite;
     }
-    public float getResistanceMedm() {
-        return resistanceMedm;
-    }
     public Patient getPatient() {
         return patient;
     }
@@ -52,12 +48,23 @@ public abstract class Pathogene {
     public void setsensibilite(float sensibilite) {
         this.sensibilite = sensibilite;
     }
-    public void setResistanceMedm(float resistanceMedm) {
-        this.resistanceMedm = resistanceMedm;
-    }
+
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
+
+    public Traitement getTraitement(){
+        return traitement;
+    }
+
     public abstract Float updateChargeInf();
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getClass().toString());
+        sb.append(" "+nom +" (It = "+patient.getItPourPatho(this)+"; Lt = " + currentChargeInf + ")");
+        return sb.toString();
+    }
     
 }

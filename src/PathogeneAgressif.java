@@ -1,8 +1,9 @@
-public class PathogeneClassique extends Pathogene {
-   
-    public PathogeneClassique(String nom, TypePatho type, float currentChargeInf, float tauxRep, float sensibilite, Patient patient) {
+public class PathogeneAgressif extends Pathogene{
+    public PathogeneAgressif(String nom, TypePatho type, float currentChargeInf, float tauxRep, float sensibilite, Patient patient, Traitement traitement) {
         super(nom, type, currentChargeInf, tauxRep, sensibilite, patient);
     }
+
+
 
     public Float updateChargeInf(){
         float sommeTraitement = 0;
@@ -11,7 +12,7 @@ public class PathogeneClassique extends Pathogene {
         }
         float it = patient.getItPourPatho(this);
         float oldLt = currentChargeInf;
-        float newLt = oldLt + tauxRep*oldLt - sensibilite*it - sommeTraitement;
+        float newLt = oldLt + tauxRep*(oldLt*oldLt) - sensibilite*it - sommeTraitement;
         if(newLt>0){
             currentChargeInf = newLt;
         } else{
