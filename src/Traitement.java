@@ -2,9 +2,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Traitement {
-    private HashMap<Medicament, Float> resistanceMed;
-    private HashMap<Medicament, Float> doseMed;
+    private HashMap<Medicament, Float> resistanceMed = new HashMap<>();
+    private HashMap<Medicament, Float> concentrationMed = new HashMap<>();
     private Pathogene pathogene;
+
     public Traitement(){
 
     }
@@ -13,16 +14,19 @@ public class Traitement {
        ajouterMed(m, res, dose);
     }
 
+    public void setPathogene(Pathogene p){
+        this.pathogene = p;
+    }
 
-    public void ajouterMed(Medicament m, float res, float dose){
+    public void ajouterMed(Medicament m, float res, float conMed){
         resistanceMed.put(m, res);
-        doseMed.put(m, dose);
+        concentrationMed.put(m, conMed);
     }
 
     public float getSomme(){
         float result = 0.0F;
-        for(Medicament m: doseMed.keySet()){
-            result += pathogene.getsensibilite() * doseMed.get(m) * (1-resistanceMed.get(m));
+        for(Medicament m: concentrationMed.keySet()){
+            result += pathogene.getsensibilite() * concentrationMed.get(m) * (1-resistanceMed.get(m));
         }
         updateResPatho();
         updateDoseMed();
@@ -48,8 +52,12 @@ public class Traitement {
         return resistanceMed.get(m);
     }
 
+        public Float getCurrentRmForMed(Medicament m){
+        return concentrationMed.get(m);
+    }
+
     public void updateDoseMed() {
-        for(Medicament m: doseMed.keySet()){
+        for(Medicament m: concentrationMed.keySet()){
             float h = m.getTauxDisparition();
             float dosePriseAujourdhui = 0;
             if (m.getNumCycleCourant() % m.getIntervalleCycleDose() == 0) {
@@ -57,9 +65,18 @@ public class Traitement {
             }
             float oldDm = getCurrentDmForMed(m);
             float newDm = (h * oldDm) + dosePriseAujourdhui;
-            doseMed.replace(m,oldDm, newDm );
+            concentrationMed.replace(m,oldDm, newDm );
             m.nextCycle();
         }
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        for(Medicament m: concentrationMed.keySet()){
+            sb.append("\t#" + m.toString() + " (Dm = "+getCurrentDmForMed(m) + "; Rm = " +getCurrentRmForMed(m)+")");
+        }
+        return sb.toString();
     }
 
 }

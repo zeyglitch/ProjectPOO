@@ -42,6 +42,11 @@ public class Medicament {
         numCycleCourant++;
     }
 
+    @Override
+    public String toString(){
+        return nom;
+    }
+
     
 
 

@@ -14,6 +14,10 @@ public abstract class Pathogene {
         this.patient = patient;
     }
 
+    public void setTraitement(Traitement t){
+        this.traitement = t;
+    }
+
 
     public String getNom() {
         return nom;
@@ -64,6 +68,10 @@ public abstract class Pathogene {
         StringBuilder sb = new StringBuilder();
         sb.append(this.getClass().toString());
         sb.append(" "+nom +" (It = "+patient.getItPourPatho(this)+"; Lt = " + currentChargeInf + ")");
+        if(traitement!=null){
+            sb.append("\n\ttraite par le traitement: \n");
+            sb.append(traitement.toString());
+        }
         return sb.toString();
     }
     

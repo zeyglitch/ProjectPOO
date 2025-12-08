@@ -17,23 +17,28 @@ public class Simulation{
     }
 
     public void ajouterPathogene(Pathogene patho, float itInit){
-        for(Patient p: patients){
-            p.ajouterPatho(patho, itInit);
-        }
+        Patient p = patho.getPatient();
+        p.ajouterPatho(patho, itInit);
     }
 
-    public void ajouterMed(Pathogene patho, Medicament med, float resM, float dose){
+    public void ajouterMed(Pathogene patho, Medicament med, float resM){
         Traitement traitement = patho.getTraitement();
-        traitement.ajouterMed(med, resM, dose);
+        if(traitement==null){
+            patho.setTraitement(new Traitement());
+            patho.getTraitement().setPathogene(patho);
+        }
+        patho.getTraitement().ajouterMed(med, resM, 0);
     }
 
     public void debutSimul(){
+        System.out.println("---- Debut simulation ----");
         for(Patient p: patients){
             System.out.println(p.toString());
         }
     }
 
     public void simulerCycle(){
+        System.out.println("---- Cycle " + currentCycle+" ----");
         for(Patient p: patients){
             p.updateIt();
             System.out.println(p.toString());

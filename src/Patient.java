@@ -8,6 +8,7 @@ public abstract class Patient {
     protected float coefFatigue;
     protected float reactiviteSI;
     protected HashMap<Pathogene, Float> pathoEtIt = new HashMap<>();
+    protected HashMap<Pathogene, Traitement> pathoEtTrait = new HashMap<>();
 
     public Patient(String nom, String prenom, float coefFatigue, float reactiviteSI){
         this.nom = nom;
