@@ -1,25 +1,25 @@
 
 import java.util.Date;
+import java.util.HashMap;
 
-public class Patient {
-private String nom;
-private String prenom;
-private Date dateNaissance;
-private HashTable<Infection, ReponseImmunitaire> reponseImParInfection;
+public abstract class Patient {
+protected String nom;
+    protected String prenom;
+    protected Date dateNaissanece;
+    protected float coefFatigue;
+    protected float reactiviteSI;
 
-public Patient(String nom, String prenom, Date dateNaissance) {
-    this.nom = nom;
-    this.prenom = prenom;
-    this.dateNaissance = dateNaissance;
-    this.reponseImParInfection = new HashTable<Infection, ReponseImmunitaire>();
+    protected HashMap<Pathogene, Float> pathoEtIt = new HashMap<>();
+    
+    public void ajouterPatho(Pathogene p, Float it){
+        pathoEtIt.put(p, it);
+    }
+
+    public Float getItPourPatho(Pathogene p){
+        return pathoEtIt.get(p);
+    }
+
+    public abstract void updateIt();
 }
 
-public void simulercycle(Cycle cycle){
 
-
-}
-public void ajouterInfection(Infection infection, ReponseImmunitaire reponseImmunitaire){
-    this.reponseImParInfection.put(infection, reponseImmunitaire);
-}
-
-}
