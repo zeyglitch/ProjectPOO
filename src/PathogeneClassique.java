@@ -12,9 +12,11 @@ public class PathogeneClassique extends Pathogene {
         if(newLt>0){
             p.updateChargePatho(this, newLt);
         } else{
-            p.updateChargePatho(this, 0);
+            p.updateChargePatho(this,0);
         }
         return p.getChargePourPatho(this);
     }
+
+    
 
 }
