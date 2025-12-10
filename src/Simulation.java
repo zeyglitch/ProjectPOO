@@ -22,7 +22,7 @@ public class Simulation{
         }
     }
 
-    public void ajouterMed(Pathogene patho, Medicament med, float resM, float concMed){
+    public void ajouterMed(Pathogene patho, Medicament medModele, float resM, float concMed){
         for(Patient p: patients){
 
             Medicament copieMed = new Medicament(
