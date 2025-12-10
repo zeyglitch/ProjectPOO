@@ -38,7 +38,8 @@ public class Traitement {
             IResistanceDynamique dynamicPathogene = (IResistanceDynamique) pathogene;
             for(Medicament m: resistanceMed.keySet()){
                 float oldRes = resistanceMed.get(m);
-                float newRes = dynamicPathogene.calculerNouvelleResistance(m);
+                float dm = getCurrentDmForMed(m);
+                float newRes = dynamicPathogene.calculerNouvelleResistance(oldRes, dm);
                 resistanceMed.replace(m, oldRes, newRes);
             }
         }
@@ -49,11 +50,11 @@ public class Traitement {
     }
 
     public Float getCurrentDmForMed(Medicament m){
-        return resistanceMed.get(m);
+        return concentrationMed.get(m);
     }
 
         public Float getCurrentRmForMed(Medicament m){
-        return concentrationMed.get(m);
+        return resistanceMed.get(m);
     }
 
     public void updateDoseMed() {

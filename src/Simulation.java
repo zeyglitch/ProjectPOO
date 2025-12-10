@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Simulation{
-    private int currentCycle = 0;
+    private int currentCycle = 1;
     private ArrayList<Patient> patients = new ArrayList<Patient>();
 
     public Simulation(){
@@ -36,7 +36,7 @@ public class Simulation{
     }
 
     public void simulerCycle(){
-        System.out.println("---- Cycle " + currentCycle+" ----");
+        System.out.println("---- Cycle " + currentCycle +" ----");
         for(Patient p: patients){
             p.updateIt();
             System.out.println(p.toString());

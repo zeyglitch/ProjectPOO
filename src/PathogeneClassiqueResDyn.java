@@ -1,10 +1,17 @@
 public class PathogeneClassiqueResDyn extends Pathogene implements IResistanceDynamique{
+    private float tauxImpact = 0.5F;
+
     public PathogeneClassiqueResDyn(String nom, TypePatho type, float tauxRep, float sensibilite) {
         super(nom, type, tauxRep, sensibilite);
     }
 
-    public float calculerNouvelleResistance(Medicament m){
-        return 0.0F;
+    public PathogeneClassiqueResDyn(String nom, TypePatho type, float tauxRep, float sensibilite, float tauxImpact) {
+        super(nom, type, tauxRep, sensibilite);
+        this.tauxImpact = tauxImpact;
+    }
+
+    public float calculerNouvelleResistance(float oldRes, float dm){
+        return oldRes + tauxImpact*dm;
     }
 
     public Float updateChargeInf(Patient p){
@@ -19,4 +26,6 @@ public class PathogeneClassiqueResDyn extends Pathogene implements IResistanceDy
         }
         return p.getChargePourPatho(this);
     }
+
+
 }
