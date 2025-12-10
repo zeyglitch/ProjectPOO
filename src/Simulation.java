@@ -24,7 +24,16 @@ public class Simulation{
 
     public void ajouterMed(Pathogene patho, Medicament med, float resM, float concMed){
         for(Patient p: patients){
-            p.ajouterMedPourPatho(patho, med, resM, concMed);
+
+            Medicament copieMed = new Medicament(
+                medModele.getNom(),
+                medModele.getTauxDisparition(),
+                medModele.getDosePrescrite(),
+                medModele.getIntervalleCycleDose(),
+                medModele.getSensibilite()
+            );
+            
+            p.ajouterMedPourPatho(patho, copieMed, resM, concMed);
         }
     }
 
