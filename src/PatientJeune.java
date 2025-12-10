@@ -8,7 +8,7 @@ public class PatientJeune extends Patient{
         for(Pathogene p : pathoEtIt.keySet()){
             Float lt = p.updateChargeInf(this);
             Float oldIt = pathoEtIt.get(p);
-            Float newIt = (float) (oldIt + reactiviteSI*Math.sqrt(lt) + coefFatigue*oldIt);
+            Float newIt = (float) (oldIt + reactiviteSI*Math.sqrt(lt) - coefFatigue*oldIt);
             if(newIt>0){
                 pathoEtIt.replace(p, oldIt, newIt);
             }else {
