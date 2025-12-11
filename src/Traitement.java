@@ -27,7 +27,7 @@ public class Traitement {
         float result = 0.0F;
         updateDoseMed();
         for(Medicament m: concentrationMed.keySet()){
-            result += pathogene.getsensibilite() * concentrationMed.get(m) * (1-resistanceMed.get(m));
+            result += m.getSensibilite() * concentrationMed.get(m) * (1-resistanceMed.get(m));
         }
         updateResPatho();
         return result;
