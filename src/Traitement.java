@@ -25,11 +25,11 @@ public class Traitement {
 
     public float getSomme(){
         float result = 0.0F;
-        for(Medicament m: concentrationMed.keySet()){
-            result += pathogene.getsensibilite() * concentrationMed.get(m) * (1-resistanceMed.get(m));
-        }
         updateResPatho();
         updateDoseMed();
+        for(Medicament m: concentrationMed.keySet()){
+            result += m.getSensibilite() * concentrationMed.get(m) * (1-resistanceMed.get(m));
+        }
         return result;
     }
 
