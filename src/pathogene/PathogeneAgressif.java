@@ -1,3 +1,6 @@
+package pathogene;
+import patient.Patient;
+
 public class PathogeneAgressif extends Pathogene{
     public PathogeneAgressif(String nom, TypePatho type, float tauxRep, float sensibilite) {
         super(nom, type, tauxRep, sensibilite);

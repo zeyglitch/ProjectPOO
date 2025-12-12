@@ -1,4 +1,9 @@
+package patient;
 import java.util.HashMap;
+
+import medicament.Medicament;
+import medicament.Traitement;
+import pathogene.Pathogene;
 
 public abstract class Patient {
     protected String nom;

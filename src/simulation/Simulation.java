@@ -1,4 +1,8 @@
+package simulation;
 import java.util.ArrayList;
+import medicament.Medicament;
+import pathogene.Pathogene;
+import patient.Patient;
 
 public class Simulation{
     private int currentCycle = 1;
@@ -39,7 +43,7 @@ public class Simulation{
         System.out.println("---- Cycle " + currentCycle +" ----");
         for(Patient p: patients){
             p.updateIt();
-            System.out.println(p.toString());
+            System.out.println(p.toString() + "\n");
         }
         currentCycle++;
     }

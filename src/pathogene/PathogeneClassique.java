@@ -1,3 +1,6 @@
+package pathogene;
+import patient.Patient;
+
 public class PathogeneClassique extends Pathogene {
    
     public PathogeneClassique(String nom, TypePatho type, float tauxRep, float sensibilite) {

@@ -1,5 +1,9 @@
+package medicament;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import pathogene.IResistanceDynamique;
+import pathogene.Pathogene;
 
 public class Traitement {
     private HashMap<Medicament, Float> resistanceMed = new HashMap<>();

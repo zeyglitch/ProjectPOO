@@ -1,3 +1,5 @@
+package pathogene;
+import patient.Patient;
 public abstract class Pathogene {
     protected String nom;
     protected float tauxRep, sensibilite;

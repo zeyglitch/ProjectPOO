@@ -1,3 +1,4 @@
+package medicament;
 public class Medicament {
     private String nom;
     private float tauxDisp;
