@@ -18,7 +18,7 @@ public class Scenario {
         simul.ajouterPathogene(corona, 0F, 10);
         Medicament med1 = new Medicament("Doliprane", 0.8F, 1.0F, 3, 0.5F);
         simul.ajouterMed(corona, med1, 0.1F, 0);
-        simul.debutSimul();
+        simul.debuterSimul();
         for (int i = 0; i < 20; i++) {
             simul.simulerCycle();
         }
@@ -38,7 +38,7 @@ public class Scenario {
         simul2.ajouterPathogene(corona2, 0F, 10);
         Medicament med2 = new Medicament("Doliprane", 0.8F, 1.0F, 3, 0.5F);
         simul2.ajouterMed(corona2, med2, 0.1F, 0);
-        simul2.debutSimul();
+        simul2.debuterSimul();
         for (int i = 0; i < 20; i++) {
             simul2.simulerCycle();
         }
@@ -60,7 +60,7 @@ public class Scenario {
         simul3.ajouterPathogene(corona3, 0F, 10);
         Medicament med3 = new Medicament("Doliprane", 0.8F, 1.0F, 3, 0.5F);
         simul3.ajouterMed(corona3, med3, 0.1F, 0);
-        simul3.debutSimul();
+        simul3.debuterSimul();
         for (int i = 0; i < 20; i++) {
             simul3.simulerCycle();
         }
@@ -72,13 +72,13 @@ public class Scenario {
 
 
 
-        /* 
+    
         //Decomenter pour exécuter la quatrième simulation
-        System.out.println("Quatrieme avec 3 patients adultes et un pathogène classique");
+        System.out.println("Quatrieme simulation avec 3 patients différents et un pathogène classique");
         Simulation simul4 = new Simulation();
-        Patient p4 = new PatientAdulte("Joe", "Bob", 0.1F, 0.4F);
+        Patient p4 = new PatientJeune("Joe", "Bob", 0.1F, 0.4F);
         Patient p5 = new PatientAdulte("Rock", "Dwayne", 0.3F, 0.4F);
-        Patient p6 = new PatientAdulte("John", "Cena", 0.1F, 0.6F);
+        Patient p6 = new PatientAge("John", "Cena", 0.1F, 0.6F);
         simul4.ajouterPatient(p4);
         simul4.ajouterPatient(p5);
         simul4.ajouterPatient(p6);
@@ -86,7 +86,7 @@ public class Scenario {
         simul4.ajouterPathogene(corona, 0F, 10);
         Medicament med1 = new Medicament("Doliprane", 0.8F, 1.0F, 3, 0.5F);
         simul4.ajouterMed(corona, med1, 0.1F, 0);
-        simul4.debutSimul();
+        simul4.debuterSimul();
         for (int i = 0; i < 20; i++) {
             simul4.simulerCycle();
         }
@@ -94,7 +94,6 @@ public class Scenario {
         // On remarque que le patient avec la meilleure réactivité du système immunitaire guérit le plus rapidement (charge infectieuse diminue plus vite).
         // On remarque aussi que le patient avec le plus fort coefficient de fatigue guérit le plus lentement (charge infectieuse diminue plus lentement).
         // Ainsi, notre simulation prend bien en compte les caractéristiques des patients conforme à la réalité.
-        */
 
 
     }

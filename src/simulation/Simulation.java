@@ -28,15 +28,23 @@ public class Simulation{
 
     public void ajouterMed(Pathogene patho, Medicament med, float resM, float concMed){
         for(Patient p: patients){
-            p.ajouterMedPourPatho(patho, med, resM, concMed);
+                Medicament copieMed = new Medicament(
+                med.getNom(),
+                med.getTauxDisparition(),
+                med.getDosePrescrite(),
+                med.getIntervalleCycleDose(),
+                med.getSensibilite()
+            );
+            p.ajouterMedPourPatho(patho, copieMed, resM, concMed);
         }
     }
 
-    public void debutSimul(){
+    public void debuterSimul(){
         System.out.println("---- Debut simulation ----");
         for(Patient p: patients){
             System.out.println(p.toString());
         }
+        System.out.println("--------------------------\n");
     }
 
     public void simulerCycle(){

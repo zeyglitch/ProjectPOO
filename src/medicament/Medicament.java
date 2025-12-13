@@ -16,7 +16,7 @@ public class Medicament {
     }
 
     public String getNom(){
-        return nom;
+        return this.nom;
     }
 
     public float getSensibilite(){
@@ -45,6 +45,6 @@ public class Medicament {
 
     @Override
     public String toString(){
-        return nom;
+        return "Medicament " + nom;
     }
 }

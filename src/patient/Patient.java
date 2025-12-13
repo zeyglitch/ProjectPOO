@@ -55,13 +55,13 @@ public abstract class Patient {
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Patient : "+nom +" "+ prenom + " est infecté par : \n");
+        sb.append(getClass().getSimpleName() + " : "+nom +" "+ prenom + " est infecte par : \n");
         for(Pathogene patho: pathoEtIt.keySet()){
             sb.append("- "+patho.toString());
             sb.append(" (It = " + getItPourPatho(patho) + "; Lt = " + getChargePourPatho(patho) +")\n" );
             Traitement traitement = getTraitementPourPatho(patho);
             if(traitement.getMedicaments().size()>0){
-                sb.append("\ttraité par les médicaments :");
+                sb.append("\ttraite par les medicaments :");
             }
             for(Medicament m: traitement.getMedicaments()){
                 sb.append("\n\t#" + m.toString());

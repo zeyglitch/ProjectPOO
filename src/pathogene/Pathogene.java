@@ -22,7 +22,7 @@ public abstract class Pathogene {
     public float getTauxRep() {
         return tauxRep;
     }
-    public float getsensibilite() {
+    public float getSensibilite() {
         return sensibilite;
     }
 
@@ -35,7 +35,7 @@ public abstract class Pathogene {
     public void setTauxRep(float tauxRep) {
         this.tauxRep = tauxRep;
     }   
-    public void setsensibilite(float sensibilite) {
+    public void setSensibilite(float sensibilite) {
         this.sensibilite = sensibilite;
     }
 
@@ -44,7 +44,7 @@ public abstract class Pathogene {
 
     @Override
     public String toString(){
-        return this.getClass().getName() + " " +nom;
+        return this.getClass().getSimpleName() + " " + nom;
     }
     
 }

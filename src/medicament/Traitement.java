@@ -11,7 +11,6 @@ public class Traitement {
     private Pathogene pathogene;
 
     public Traitement(){
-
     }
 
     public Traitement(Medicament m, float res, float dose){
@@ -29,11 +28,11 @@ public class Traitement {
 
     public float getSomme(){
         float result = 0.0F;
-        updateResPatho();
         updateDoseMed();
         for(Medicament m: concentrationMed.keySet()){
             result += m.getSensibilite() * concentrationMed.get(m) * (1-resistanceMed.get(m));
         }
+        updateResPatho();
         return result;
     }
 
@@ -53,11 +52,11 @@ public class Traitement {
         return new ArrayList<Medicament>(resistanceMed.keySet());
     }
 
-    public Float getCurrentDmForMed(Medicament m){
+    public float getCurrentDmForMed(Medicament m){
         return concentrationMed.get(m);
     }
 
-        public Float getCurrentRmForMed(Medicament m){
+    public float getCurrentRmForMed(Medicament m){
         return resistanceMed.get(m);
     }
 
@@ -79,7 +78,7 @@ public class Traitement {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         for(Medicament m: concentrationMed.keySet()){
-            sb.append("\t#" + m.toString() + " (Dm = "+getCurrentDmForMed(m) + "; Rm = " +getCurrentRmForMed(m)+")");
+            sb.append("\t#" + m.getNom() + " (Dm = "+getCurrentDmForMed(m) + "; Rm = " +getCurrentRmForMed(m)+")");
         }
         return sb.toString();
     }
