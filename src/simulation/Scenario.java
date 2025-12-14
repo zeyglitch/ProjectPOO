@@ -77,8 +77,8 @@ public class Scenario {
         System.out.println("Quatrieme simulation avec 3 patients différents et un pathogène classique");
         Simulation simul4 = new Simulation();
         Patient p4 = new PatientJeune("Joe", "Bob", 0.1F, 0.4F);
-        Patient p5 = new PatientAdulte("Rock", "Dwayne", 0.3F, 0.4F);
-        Patient p6 = new PatientAge("John", "Cena", 0.1F, 0.6F);
+        Patient p5 = new PatientAdulte("Rock", "Dwayne", 0.1F, 0.4F);
+        Patient p6 = new PatientAge("Cena", "John", 0.1F, 0.4F);
         simul4.ajouterPatient(p4);
         simul4.ajouterPatient(p5);
         simul4.ajouterPatient(p6);
