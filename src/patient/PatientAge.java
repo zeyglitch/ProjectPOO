@@ -11,7 +11,7 @@ public class PatientAge extends Patient{
         for(Pathogene p : pathoEtIt.keySet()){
             Float lt = p.updateChargeInf(this);
             Float oldIt = pathoEtIt.get(p);
-            Float newIt = (oldIt + reactiviteSI*lt + coefFatigue*(oldIt*oldIt));
+            Float newIt = (oldIt + reactiviteSI*lt - coefFatigue*(oldIt*oldIt));
             if(newIt>0){
                 pathoEtIt.replace(p, oldIt, newIt);
             }else {
